@@ -1,3 +1,4 @@
+import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config({ quiet: true });
 
@@ -27,16 +28,6 @@ connectDB();
 //   "http://localhost:5173",
 //   "https://interview-prep-ai-roan.vercel.app",
 // ];
-
-import cors from "cors";
-
-// ================= CORS =================
-app.use(
-  cors({
-    origin: true,
-    credentials: true,
-  })
-);
 
 app.use(
   cors({
