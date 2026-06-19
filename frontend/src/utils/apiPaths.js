@@ -21,4 +21,11 @@ export const API_PATHS = {
   QUESTIONS: {
     PIN: `${BASE_URL}/questions/pin`,
   },
+  // ================= ADMIN PANEL =================
+  ADMIN: {
+    DASHBOARD: `${BASE_URL}/admin/dashboard`,
+    USERS: `${BASE_URL}/admin/users`,
+    SESSIONS: `${BASE_URL}/admin/sessions`,
+    ANALYTICS: `${BASE_URL}/admin/analytics`,
+  },
 };

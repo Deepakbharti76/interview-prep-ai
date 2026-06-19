@@ -12,6 +12,7 @@ import authRoutes from "./routes/auth-route.js";
 import sessionRoutes from "./routes/session-route.js";
 import questionRoutes from "./routes/question-route.js";
 import aiRoutes from "./routes/ai-route.js"; // ✅ ADD THIS
+import adminRoutes from "./routes/admin-route.js"; // ✅ ADMIN PANEL
 
 // 🔥 middleware
 import { protect } from "./middlewares/auth-middleware.js";
@@ -52,6 +53,9 @@ app.use("/api/questions", questionRoutes);
 
 // 🔥 AI ROUTES (BEST PRACTICE)
 app.use("/api/ai", aiRoutes);
+
+// 🔥 ADMIN PANEL ROUTES
+app.use("/api/admin", adminRoutes);
 
 // ❌ REMOVE THESE (duplicate थे)
 // app.use("/api/ai/generate-questions", protect, generateInterviewQuestions);

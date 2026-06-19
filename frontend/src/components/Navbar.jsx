@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { BsLightningChargeFill } from "react-icons/bs";
-import { FiLogOut, FiGrid } from "react-icons/fi";
+import { FiLogOut, FiGrid, FiShield } from "react-icons/fi";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -30,6 +30,18 @@ const Navbar = () => {
             Hi, {user.name.split(" ")[0]} 👋
           </span>
         )}
+
+        {/* 🔒 ADMIN PANEL: only visible to admin users */}
+        {user?.role === "admin" && (
+          <button
+            onClick={() => navigate("/admin/dashboard")}
+            className="flex items-center gap-1.5 text-sm text-indigo-600 hover:text-indigo-700 px-3 py-1.5 rounded-lg hover:bg-indigo-50 transition"
+          >
+            <FiShield size={14} />
+            <span className="hidden sm:block">Admin Panel</span>
+          </button>
+        )}
+
         <button
           onClick={() => navigate("/dashboard")}
           className="flex items-center gap-1.5 text-sm text-gray-600 hover:text-gray-900 px-3 py-1.5 rounded-lg hover:bg-gray-50 transition"

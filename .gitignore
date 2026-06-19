@@ -3,12 +3,17 @@ node_modules/
 
 # Environment variables (IMPORTANT)
 .env
+.env.local
+.env.*.local
 backend/.env
 frontend/.env
 
 # Build files
 dist/
 build/
+
+# Uploaded files (user-uploaded content, if any)
+backend/uploads/
 
 # Logs
 logs

@@ -39,6 +39,7 @@ export const registerUser = async (req, res) => {
       name,
       email,
       password: hashedPassword,
+      // role defaults to "user" automatically
     });
 
     // ✅ response
@@ -49,6 +50,7 @@ export const registerUser = async (req, res) => {
         _id: user._id,
         name: user.name,
         email: user.email,
+        role: user.role,
       },
       token: generateToken(user._id),
     });
@@ -88,6 +90,18 @@ export const loginUser = async (req, res) => {
       });
     }
 
+    // 🔒 ADMIN PANEL: blocked users cannot log in
+    if (user.isBlocked) {
+      return res.status(403).json({
+        message:
+          "Your account has been blocked. Please contact support for assistance.",
+      });
+    }
+
+    // 🔒 ADMIN PANEL: track last login time
+    user.lastLogin = new Date();
+    await user.save();
+
     // ✅ response
     res.json({
       success: true,
@@ -96,6 +110,7 @@ export const loginUser = async (req, res) => {
         _id: user._id,
         name: user.name,
         email: user.email,
+        role: user.role,
       },
       token: generateToken(user._id),
     });
