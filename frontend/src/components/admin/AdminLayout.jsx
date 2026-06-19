@@ -65,7 +65,7 @@ const AdminLayout = ({ children, title }) => {
             className="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition"
           >
             <FiArrowLeft size={16} />
-            Back to App
+            Back to Home
           </button>
           <button
             onClick={logout}
@@ -105,6 +105,14 @@ const AdminLayout = ({ children, title }) => {
                 </button>
               );
             })}
+
+            <button
+              onClick={() => navigate("/dashboard")}
+              className="p-2 rounded-lg text-blue-500"
+              title="Back to Home"
+            >
+              <FiArrowLeft size={16} />
+            </button>
             <button
               onClick={logout}
               className="p-2 rounded-lg text-red-500"
