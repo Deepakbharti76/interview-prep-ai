@@ -22,11 +22,21 @@ const app = express();
 // ================= DB =================
 connectDB();
 
+// // ================= CORS =================
+// const allowedOrigins = [
+//   "http://localhost:5173",
+//   "https://interview-prep-ai-roan.vercel.app",
+// ];
+
+import cors from "cors";
+
 // ================= CORS =================
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://interview-prep-ai-roan.vercel.app",
-];
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  })
+);
 
 app.use(
   cors({
