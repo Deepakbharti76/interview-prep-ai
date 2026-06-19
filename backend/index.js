@@ -64,6 +64,11 @@ app.use("/api/admin", adminRoutes);
 // ================= STATIC =================
 app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 
+// ================= HOME ROUTE =================
+app.get("/", (req, res) => {
+  res.send("Interview Prep AI Backend is Running 🚀");
+});
+
 // ================= SERVER =================
 const PORT = process.env.PORT || 5000;
 
